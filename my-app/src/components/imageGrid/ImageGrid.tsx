@@ -32,8 +32,6 @@ export default function ImageGrid() {
   const [photos, setPhotos] = useState<Array<ImageCardProps>>([])
   const [loading, setLoading] = useState(true)
 
-  const API_KEY = 'FvG2ykUPedQnrXd0Q9IyREYOZfMphhnKHyB4RsCm'
-
   function checkURL(url: string) {
     return url.match(/\.(jpeg|jpg|gif|png)$/) != null
   }
@@ -57,7 +55,7 @@ export default function ImageGrid() {
       setLoading(false)
     } else {
       fetch(
-        `https://api.nasa.gov/planetary/apod?start_date=2021-08-15&api_key=${API_KEY}`
+        `https://api.nasa.gov/planetary/apod?start_date=2021-08-15&api_key=${process.env.REACT_APP_NASA_API_KEY}`
       )
         .then((response) => response.json())
         .then((response) => {
