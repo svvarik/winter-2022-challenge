@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='App'>
       <Navbar />
-      <div style={{paddingTop: 80}}>
+      <div style={{ paddingTop: 80, backgroundColor: '#fafafa' }}>
         <ImageGrid />
       </div>
     </div>
