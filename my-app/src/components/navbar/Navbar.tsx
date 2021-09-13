@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     appBar: {
       backgroundColor: Colors.offWhite,
+      maxHeight: 60,
     },
     navButton: {
       color: Colors.primary,
@@ -37,7 +38,7 @@ export default function Navbar() {
 
   return (
     <div className={classes.root}>
-      <AppBar elevation={0} position='static' className={classes.appBar}>
+      <AppBar elevation={1} position='fixed' className={classes.appBar}>
         <Toolbar>
           <img src={logo} alt='' />
           <Typography variant='h6' className={classes.title}>
