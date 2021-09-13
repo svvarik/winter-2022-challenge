@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/winter-2022-challenge/static/css/main.fc5fddca.chunk.css",
+    "main.js": "/winter-2022-challenge/static/js/main.3aca7656.chunk.js",
+    "main.js.map": "/winter-2022-challenge/static/js/main.3aca7656.chunk.js.map",
+    "runtime-main.js": "/winter-2022-challenge/static/js/runtime-main.cc325d86.js",
+    "runtime-main.js.map": "/winter-2022-challenge/static/js/runtime-main.cc325d86.js.map",
+    "static/js/2.5857d7be.chunk.js": "/winter-2022-challenge/static/js/2.5857d7be.chunk.js",
+    "static/js/2.5857d7be.chunk.js.map": "/winter-2022-challenge/static/js/2.5857d7be.chunk.js.map",
+    "static/js/3.9d66aa63.chunk.js": "/winter-2022-challenge/static/js/3.9d66aa63.chunk.js",
+    "static/js/3.9d66aa63.chunk.js.map": "/winter-2022-challenge/static/js/3.9d66aa63.chunk.js.map",
+    "index.html": "/winter-2022-challenge/index.html",
+    "static/css/main.fc5fddca.chunk.css.map": "/winter-2022-challenge/static/css/main.fc5fddca.chunk.css.map",
+    "static/js/2.5857d7be.chunk.js.LICENSE.txt": "/winter-2022-challenge/static/js/2.5857d7be.chunk.js.LICENSE.txt",
+    "static/media/logo.3da5d96a.svg": "/winter-2022-challenge/static/media/logo.3da5d96a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cc325d86.js",
+    "static/js/2.5857d7be.chunk.js",
+    "static/css/main.fc5fddca.chunk.css",
+    "static/js/main.3aca7656.chunk.js"
+  ]
+}
