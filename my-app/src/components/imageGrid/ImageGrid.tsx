@@ -23,6 +23,7 @@ type ImageCardProps = {
   date: string
   description: string
   title: string
+  liked: boolean
 }
 
 export default function ImageGrid() {
@@ -37,29 +38,48 @@ export default function ImageGrid() {
     return url.match(/\.(jpeg|jpg|gif|png)$/) != null
   }
 
-  useEffect(() => {
-    fetch(
-      `https://api.nasa.gov/planetary/apod?start_date=2021-08-15&api_key=${API_KEY}`
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response)
-        const loadedPhotos: Array<ImageCardProps> = []
+  function updateLikeForImage(date: string, isLiked: boolean) {
+    const updatedArray = [...photos]
+    updatedArray.forEach((x) => {
+      if (x.date === date) {
+        x.liked = isLiked
+      }
+    })
+    setPhotos(updatedArray)
+    localStorage.setItem('photos', JSON.stringify(photos))
+  }
 
-        response.forEach((x: any) => {
-          if (checkURL(x['url'])) {
-            loadedPhotos.push({
-              imageURL: x['url'],
-              key: x['date'],
-              title: x['title'],
-              date: x['date'],
-              description: x['explanation'],
-            })
-          }
+  useEffect(() => {
+    const cachedPhotosList = localStorage.getItem('photos')
+    if (cachedPhotosList && cachedPhotosList.length > 2) {
+      const json = JSON.parse(cachedPhotosList)
+      setPhotos(json)
+      setLoading(false)
+    } else {
+      fetch(
+        `https://api.nasa.gov/planetary/apod?start_date=2021-08-15&api_key=${API_KEY}`
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response)
+          const loadedPhotos: Array<ImageCardProps> = []
+          response.forEach((x: any) => {
+            if (checkURL(x['url'])) {
+              loadedPhotos.push({
+                imageURL: x['url'],
+                key: x['date'],
+                title: x['title'],
+                date: x['date'],
+                description: x['explanation'],
+                liked: false,
+              })
+            }
+          })
+          setPhotos(loadedPhotos)
+          localStorage.setItem('photos', JSON.stringify(photos))
+          setLoading(false)
         })
-        setPhotos(loadedPhotos)
-        setLoading(false)
-      })
+    }
   }, [])
 
   return (
@@ -73,6 +93,8 @@ export default function ImageGrid() {
               title={x.title}
               date={x.date}
               description={x.description}
+              onLike={updateLikeForImage}
+              liked={x.liked}
             />
           )
         })

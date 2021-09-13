@@ -31,6 +31,8 @@ type ImageCardProps = {
   date: string
   description: string
   title: string
+  liked: boolean
+  onLike: (date: string, isLiked: boolean) => void
 }
 
 export default function ImageCard(props: ImageCardProps) {
@@ -38,7 +40,9 @@ export default function ImageCard(props: ImageCardProps) {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.up('sm'))
 
-  const [like, setLike] = useState(false)
+  function updateLiked() {
+    props.onLike(props.date, !props.liked)
+  }
 
   return (
     <Card
@@ -66,10 +70,10 @@ export default function ImageCard(props: ImageCardProps) {
           style={{ marginLeft: 'auto' }}
           aria-label='like the image'
           onClick={() => {
-            setLike(!like)
+            updateLiked()
           }}
         >
-          <FavoriteIcon color={like ? 'primary' : 'inherit'} />
+          <FavoriteIcon color={props.liked ? 'primary' : 'inherit'} />
         </IconButton>
       </CardActions>
     </Card>
