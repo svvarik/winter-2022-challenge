@@ -49,35 +49,36 @@ export default function ImageGrid() {
 
   useEffect(() => {
     const cachedPhotosList = localStorage.getItem('photos')
-    if (cachedPhotosList && cachedPhotosList.length > 2) {
-      const json = JSON.parse(cachedPhotosList)
-      setPhotos(json)
-      setLoading(false)
-    } else {
-      fetch(
-        `https://api.nasa.gov/planetary/apod?start_date=2021-08-15&api_key=${process.env.REACT_APP_NASA_API_KEY}`
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          console.log(response)
-          const loadedPhotos: Array<ImageCardProps> = []
-          response.forEach((x: any) => {
-            if (checkURL(x['url'])) {
-              loadedPhotos.push({
-                imageURL: x['url'],
-                key: x['date'],
-                title: x['title'],
-                date: x['date'],
-                description: x['explanation'],
-                liked: false,
-              })
-            }
-          })
-          setPhotos(loadedPhotos)
-          localStorage.setItem('photos', JSON.stringify(photos))
-          setLoading(false)
+    // if (cachedPhotosList && cachedPhotosList.length > 5) {
+    //   const json = JSON.parse(cachedPhotosList)
+    //   setPhotos(json)
+    //   setLoading(false)
+    // } else {
+    fetch(
+      `https://api.nasa.gov/planetary/apod?start_date=2021-08-15&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response)
+        const loadedPhotos: Array<ImageCardProps> = []
+        response.forEach((x: any) => {
+          if (checkURL(x['url'])) {
+            loadedPhotos.push({
+              imageURL: x['url'],
+              key: x['date'],
+              title: x['title'],
+              date: x['date'],
+              description: x['explanation'],
+              liked: false,
+            })
+          }
         })
-    }
+        setPhotos(loadedPhotos)
+        localStorage.setItem('photos', JSON.stringify(photos))
+        console.log('wtf')
+        setLoading(false)
+      })
+    // }
   }, [])
 
   return (
