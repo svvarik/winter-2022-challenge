@@ -75,7 +75,6 @@ export default function ImageGrid() {
         })
         setPhotos(loadedPhotos)
         localStorage.setItem('photos', JSON.stringify(photos))
-        console.log('wtf')
         setLoading(false)
       })
     // }
