@@ -9,6 +9,8 @@ The challenge was to build a site using one of NASA's Open APIs to gather and di
 - Pictures show a title, date captured, and a small description
 
 ## Additional Features
+- "See More"
+    - Users can click see more to see an expanded description of the image.
 - Infinite scroll
     - Users are able to scroll from a selected date (August 02) all the way to today. A "You've caught up" sign is displayed on the bottom.
 - For UI Features, I made heavy use of React Material UI's library, allowing me to quickly implement a user-friendly heart button to like images, and a loading indicator
