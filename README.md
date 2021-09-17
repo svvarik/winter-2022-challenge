@@ -9,6 +9,8 @@ The challenge was to build a site using one of NASA's Open APIs to gather and di
 - Pictures show a title, date captured, and a small description
 
 ## Additional Features
+- Responsive Design
+    - Website is mobile friendly as well, and responds to screen size.
 - "See More"
     - Users can click see more to see an expanded description of the image.
 - Infinite scroll
