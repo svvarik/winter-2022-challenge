@@ -1,6 +1,8 @@
-Live Project Link: https://svvarik.github.io/winter-2022-challenge/
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# Live Project Link
+
+https://svvarik.github.io/winter-2022-challenge/
 
 # Shopify Winter 2022 Challenge
 
